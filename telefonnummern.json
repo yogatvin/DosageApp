@@ -1,0 +1,18 @@
+[
+  {
+    "Kategorie": "Allgemeiner Notruf",
+    "Telefonnummer": "112"
+  },
+  {
+    "Kategorie": "Vergiftungen",
+    "Telefonnummer": "145"
+  },
+  {
+    "Kategorie": "Ärztlicher Notfalldienst",
+    "Telefonnummer": "0800 33 66 55"
+  },
+  {
+    "Kategorie": "Psychiatrischer Notfalldienst",
+    "Telefonnummer": "0800 333 444"
+  }
+]

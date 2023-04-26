@@ -1,0 +1,18 @@
+{
+  "Beschwerden": [
+    "Kopfschmerzen",
+    "Bauchschmerzen",
+    "Übelkeit",
+    "Schwindel",
+    "Husten",
+    "Fieber"
+  ],
+  "Zeitpunkt/Häufigkeit": [
+    "1x täglich",
+    "2x täglich",
+    "3x täglich",
+    "Mehr als 3x täglich",
+    "2x täglich",
+    "1x täglich"
+  ]
+}
