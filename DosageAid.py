@@ -17,32 +17,41 @@ USERS = [
 ]
 
  
-
 def login():
     st.title("Unlock the DosageAid-App: Your Personal Medication Assistant! 🥳")
     username = st.text_input("Benutzername")
     password = st.text_input("Passwort", type="password")
     login_button = st.button("Einloggen")
-
- 
-
+    
     if login_button:
         for user in USERS:
             if username == user["username"] and password == user["password"]:
                 st.success("Erfolgreich eingeloggt!")
                 st.session_state.authenticated = True
                 main()
+                st.success("")
                 return
+            
+            st.error("Ungültiger Benutzername oder Passwort!")
+            
+def logout():
+    st.session_state.authenticated = False
 
  
 
-        st.error("Ungültiger Benutzername oder Passwort!")
-    
+ 
+
 def main():
-    
-    if "authenticated" not in st.session_state:
+    if "authenticated" not in st.session_state or not st.session_state.authenticated:
         login()
     else:
+        
+        if st.button("Logout"):
+            logout()
+
+ 
+
+
         st.sidebar.title("Navigation")
         pages = {
             "Startseite": page_home,
@@ -58,7 +67,9 @@ def main():
         selection = st.sidebar.radio("Gehe zu", list(pages.keys()))
         page = pages[selection]
         page()
-    
+ 
+
+
 
 def page_home():
     image_url = "https://media.istockphoto.com/id/949119664/vector/cute-white-doctor-robot-modern-health-care-flat-editable-vector-illustration-clip-art.jpg?s=170667a&w=0&k=20&c=EMq4RjpMf12KPNpp7hbyU8i663LaYbcooGQpbvRuXSI="
