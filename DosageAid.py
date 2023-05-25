@@ -73,7 +73,7 @@ def page_medlist():
 
 # Markiere ausgewählte Einnahmen in der DataFrame als "done"
     for einnahme in selected_rows:
-        df.loc[df["Einnahme ⏳"] == einnahme, 'Kontrolle'] = True
+        df.loc[df["Medikamente 💊"] == einnahme, 'Kontrolle'] = True
 
  
 
