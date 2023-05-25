@@ -109,7 +109,7 @@ def page_symptoms():
     data = {'Symptome': [], 'Zeitpunkt': []}
    
     # Titel und Beschreibung
-    st.header('Besondere Symptome')
+    st.header('Gesundheitstagebuch 📖')
     st.write('Haben Sie Veränderungen bemerkt? Hier haben Sie die Möglichkeit, Ihre Symptome und den Zeitpunkt zu notieren, um ein Tagebuch zu führen, das bei Ihrem nächsten Arztbesuch zur Hilfe dient.')
    
     st.write('ℹ️ Bitte geben Sie Ihre Symptome im entsprechenden Feld ein. Wenn es um Zeitpunkte geht, wäre es hilfreich, wenn Sie das Datum und die Uhrzeit angeben (z.B: 14.02.2023, 07.00 Uhr).')
