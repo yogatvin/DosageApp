@@ -54,6 +54,8 @@ def page_home():
 
     
 def page_medlist():
+    st.header('Medikamentenliste')
+    st.write('Sie können hier Ihre Einnahmezeiten auswählen und die App erkennt automatisch, welches Medikament zu welcher Zeit eingenommen wurde. Nur mit ein paar Klicks kann eine Übersicht erschaffen werden!.')
     # Erstellen des DataFrames mit 3 Spalten und 4 Zeilen
     data = {'Einnahme ⏳': ['Morgens', 'Morgens/Abends', 'Abends', 'Nachts'],
             'Medikamente 💊': ['Aspirin Cardio 100 mg', 'Dafalgan 1 g', 'Atorvastatin 20 mg', 'Zolpidem 5 mg'],
@@ -68,7 +70,8 @@ def page_medlist():
         df.loc[df["Einnahme ⏳"] == einnahme, 'Kontrolle'] = True
     st.write(df)
 
-    st.write('Bitte Wählen sie die Tagesdosis, welches sie eingenommen haben. So haben sie Ihre Übersicht über ihre Medikamente.')
+    st.subheader('Information ℹ️')
+    st.write('Nun können sie bei "Choose an Option" ihre Einnahmezeit anwählen, somit wird das eingenommene Medikament mit ☑️ bekennzeichnet.')
 
 def page_meds():
 
