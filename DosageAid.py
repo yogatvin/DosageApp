@@ -111,12 +111,12 @@ def page_medlist():
     st.write(df)
 
     st.subheader('Information ℹ️')
-    st.write('Nun können sie bei "Choose an Option" ihre Einnahmezeit anwählen, somit wird das eingenommene Medikament mit ☑️ angezeigt.')
+    st.write('Nun können sie bei "Choose an Option" das eingenommene Medikament auswählen, somit wird es bei der Kontrolle mit ☑️ angezeigt.')
 
 def page_meds():
 
     st.header("ℹ️ Hier finden Sie weitere Informationen zu den Medikamenten")
-    st.write('Das Compendium ist einen umfassende Online-Datenbank für medizinische Informationen. Es bietet detaillierte Informationen zu Medikamenten, Krankheiten und Therapien für Fachleute und Patienten. Das Compendium wird regelmässig aktualisiert und ermöglicht gezielte Suche nach relevanten Informationen. Es unterstützt fundierte Entscheidungen und informierte Diskussionen im Gesundheitswesen. Nebenbei finden Sie auch den SL-Preis, der für die Krankenkasse relevant ist. Dieser Preis kann Ihnen dabei helfen, die Kosten des Medikaments abzuschätzen.')
+    st.write('Das Compendium ist eine umfassende Online-Datenbank für medizinische Informationen. Es bietet detaillierte Informationen zu Medikamenten, Krankheiten und Therapien für Fachleute und Patienten an. Das Compendium wird regelmässig aktualisiert und ermöglicht gezielte Suche nach relevanten Informationen. Es unterstützt fundierte Entscheidungen und informierte Diskussionen im Gesundheitswesen. Nebenbei finden Sie auch den SL-Preis, der für die Krankenkasse relevant ist. Dieser Preis kann Ihnen dabei helfen, die Kosten des Medikaments abzuschätzen.')
     st.write('Klicken Sie auf den Link „compendium.ch", um das entsprechende Verzeichnis zu öffnen.')
     url = "https://compendium.ch"
     link_name = "Compendium"
