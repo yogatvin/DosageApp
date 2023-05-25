@@ -107,36 +107,34 @@ def page_numbers():
 def page_symptoms():
     # Daten für die Tabelle
     data = {'Symptome': [], 'Zeitpunkt': []}
-    
+   
     # Titel und Beschreibung
     st.header('Besondere Symptome')
     st.write('Haben Sie Veränderungen bemerkt? Bitte geben Sie Symptome und den entsprechenden Zeitpunkt an und notieren Sie es für Ihre nächste Arztkonsultation.')
-    
+   
     st.write('ℹ️ Bitte geben Sie Ihre Symptome im entsprechenden Feld ein. Wenn es um Zeitpunkte geht, wäre es hilfreich, wenn Sie das Datum und die Uhrzeit angeben.')
-    
-    
+   
+    num_entries = 10  # Anzahl der Einträge anpassen, z.B. 10
+   
     # Eingabe von Symptomen und Zeitpunkten
-    for i in range(4):
-        symptom = st.text_input(f'Symptom {i+1}')
-        zeitpunkt = st.text_input(f'Zeitpunkt {i+1}')
-        
+    for i in range(num_entries):
+        st.subheader(f'Eintrag {i+1}')
+        symptom = st.text_input(f'Symptom {i+1}', key=f'symptom_{i}')
+        zeitpunkt = st.text_input(f'Zeitpunkt {i+1}', key=f'zeitpunkt_{i}')
+       
         # Überprüfung auf Eingabe
         if symptom and zeitpunkt:
             data['Symptome'].append(symptom)
             data['Zeitpunkt'].append(zeitpunkt)
-    
+        else:
+            break  # Abbrechen, wenn keine Eingabe mehr gemacht wird
+   
     # DataFrame erstellen
     df = pd.DataFrame(data)
-    
+   
     # Tabelle anzeigen
     st.table(df)
-
- 
-
-# Funktion zum Erstellen eines Plots auf der Seite
-def create_plot():
-    # Code zum Erstellen des Plots hier einfügen
-    pass
+    
 
 # Funktion zum Erstellen eines Plots auf der Seite
 def page_plot():
