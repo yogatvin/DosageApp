@@ -59,7 +59,7 @@ def main():
             "Compendium": page_meds,
             "Wichtige Telefonnummern": page_numbers,
             "Gesundheitstagebuch": page_symptoms,
-            "Studie": page_plot
+            "Studie: Zolpidem": page_plot
         }
 
  
@@ -115,7 +115,7 @@ def page_medlist():
 
 def page_meds():
 
-    st.header("Hier finden Sie weitere Informationen zu den Medikamenten")
+    st.header("ℹ️ Hier finden Sie weitere Informationen zu den Medikamenten")
     st.write('Das Compendium ist einen umfassende Online-Datenbank für medizinische Informationen. Es bietet detaillierte Informationen zu Medikamenten, Krankheiten und Therapien für Fachleute und Patienten. Das Compendium wird regelmässig aktualisiert und ermöglicht gezielte Suche nach relevanten Informationen. Es unterstützt fundierte Entscheidungen und informierte Diskussionen im Gesundheitswesen. Nebenbei finden Sie auch den SL-Preis, der für die Krankenkasse relevant ist. Dieser Preis kann Ihnen dabei helfen, die Kosten des Medikaments abzuschätzen.')
     st.write('Klicken Sie auf den Link „compendium.ch", um das entsprechende Verzeichnis zu öffnen.')
     url = "https://compendium.ch"
