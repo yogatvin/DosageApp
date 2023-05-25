@@ -105,31 +105,38 @@ def page_numbers():
 
 # Funktion zum Anzeigen der Symptome auf der Seite
 def page_symptoms():
-        # Daten für die Tabelle
-    data = {'Beschwerden': ['Kopfschmerzen', 'Bauchschmerzen', 'Übelkeit', 'Schwindel', 'Husten', 'Fieber'],
-            'Zeitpunkt/Häufigkeit': ['1x täglich', '2x täglich', '3x täglich', 'Mehr als 3x täglich', '2x täglich', '1x täglich']}
+    # Daten für die Tabelle
+    data = {'Symptome': [], 'Zeitpunkt': []}
+    
+    # Titel und Beschreibung
+    st.header('Besondere Symptome')
+    st.write('Haben Sie Veränderungen bemerkt? Bitte geben Sie Symptome und den entsprechenden Zeitpunkt an und notieren Sie es für Ihre nächste Arztkonsultation.')
+    
+    st.write('ℹ️ Bitte geben Sie Ihre Symptome im entsprechenden Feld ein. Wenn es um Zeitpunkte geht, wäre es hilfreich, wenn Sie das Datum und die Uhrzeit angeben.')
+    
+    
+    # Eingabe von Symptomen und Zeitpunkten
+    for i in range(4):
+        symptom = st.text_input(f'Symptom {i+1}')
+        zeitpunkt = st.text_input(f'Zeitpunkt {i+1}')
+        
+        # Überprüfung auf Eingabe
+        if symptom and zeitpunkt:
+            data['Symptome'].append(symptom)
+            data['Zeitpunkt'].append(zeitpunkt)
     
     # DataFrame erstellen
     df = pd.DataFrame(data)
     
-    # Titel und Beschreibung
-    st.write('# ⚠️ Sind Besondere Symptome aufgetreten?')
-    st.write('Haben Sie Veränderungen bemerkt? Treten Häufiger Symptome auf? Bitte tragen sie es ein und nehmen sie es mit für Ihre nächste Arztkonsultation.')
-    
     # Tabelle anzeigen
-    st.write(df)
-        
-    
+    st.table(df)
 
-    selected_symptoms = st.multiselect('Symptome', data['Beschwerden'])
-    if len(selected_symptoms) > 0:
-        df = pd.DataFrame({
-            'Symptome': selected_symptoms,
-            'Zeitpunkt/Häufigkeit': [data['Zeitpunkt/Häufigkeit'][data['Beschwerden'].index(symptom)] for symptom in selected_symptoms]
-        })
-        st.write(df)
-    else:
-        st.write('Keine Symptome ausgewählt.')
+ 
+
+# Funktion zum Erstellen eines Plots auf der Seite
+def create_plot():
+    # Code zum Erstellen des Plots hier einfügen
+    pass
 
 # Funktion zum Erstellen eines Plots auf der Seite
 def page_plot():
