@@ -78,7 +78,7 @@ def page_home():
     st.write('Wir hoffen, dass Ihnen unsere App dabei helfen wird, Ihre Medikamentendosierung auf einfache und effektive Weise zu optimieren. Vielen Dank, dass Sie sich für unsere App entschieden haben!')
     st.image(image_url, width=500)
     st.write('Vielen Dank, dass Sie uns Vertrauen.')
-    st.caption(':Blue[Herzlichst: Vinitha Yogathas, Anashai Anandaruban, Hajar Maanaoui]')
+    st.caption(':blue[Herzlichst: Vinitha Yogathas, Anashai Anandaruban, Hajar Maanaoui]')
     
     st.balloons()
     
