@@ -149,7 +149,7 @@ def page_plot():
     df = pd.DataFrame(data)
     
     # Titel und Beschreibung
-    st.headers('Information über Zolpidem ℹ️')
+    st.header('Information über Zolpidem ℹ️')
     st.write('Einnahme von Zolpidem')
     st.write('Diese Tabelle zeigt die Anzahl der Studienteilnehmer und welche aus unterschiedlichen Gründen ausgeschieden wurden. Studie aus Tellmed.ch')
     
