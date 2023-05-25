@@ -11,7 +11,34 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+# Liste von Benutzername-Passwort-Paaren
+USERS = [
+    {"username": "zhaw", "password": "123"},
+]
 
+ 
+
+def login():
+    st.title("Login")
+    username = st.text_input("Benutzername")
+    password = st.text_input("Passwort", type="password")
+    login_button = st.button("Einloggen")
+
+ 
+
+    if login_button:
+        for user in USERS:
+            if username == user["username"] and password == user["password"]:
+                st.success("Erfolgreich eingeloggt!")
+                st.session_state.authenticated = True
+                main()
+                return
+
+ 
+
+        st.error("Ungültiger Benutzername oder Passwort!")
+    
+    
 
 def page_home():
     image_url = "https://media.istockphoto.com/id/949119664/vector/cute-white-doctor-robot-modern-health-care-flat-editable-vector-illustration-clip-art.jpg?s=170667a&w=0&k=20&c=EMq4RjpMf12KPNpp7hbyU8i663LaYbcooGQpbvRuXSI="
@@ -132,7 +159,7 @@ def page_plot():
     #https://www.tellmed.ch/modules_end/printthis/?uniqueid=uniqueid&tip=2&popup=yes&mode=content_db&contentId=4854&lng=Lng1&thisMode=&clas_css=0&level_0=0   
 
 def main():
-    st.set_page_config(page_title="DosageAid 💊", page_icon=":pill:", layout="wide")
+    st.sidebar.title("Navigation")
     pages = {
         "Startseite": page_home,
         "Medikamentenliste": page_medlist,
@@ -142,10 +169,16 @@ def main():
         "Studie": page_plot
     }
 
-    st.sidebar.title("Navigation")
-    selection = st.sidebar.radio("Gehe zu", list(pages.keys()))
-    page = pages[selection]
-    page()
+ 
+
+    if "authenticated" not in st.session_state:
+        login()
+    else:
+        selection = st.sidebar.radio("Gehe zu", list(pages.keys()))
+        page = pages[selection]
+        page()
+
+ 
 
 if __name__ == "__main__":
     main()
