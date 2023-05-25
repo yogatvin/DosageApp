@@ -56,33 +56,46 @@ def page_home():
 def page_medlist():
     st.header('Medikamentenliste')
     st.write('Sie können hier Ihre Einnahmezeiten auswählen und die App erkennt automatisch, welches Medikament zu welcher Zeit eingenommen wurde. Nur mit ein paar Klicks kann eine Übersicht erschaffen werden!.')
-    # Erstellen des DataFrames mit 3 Spalten und 4 Zeilen
-    data = {'Einnahme ⏳': ['Morgens', 'Morgens/Abends', 'Abends', 'Nachts'],
-            'Medikamente 💊': ['Aspirin Cardio 100 mg', 'Dafalgan 1 g', 'Atorvastatin 20 mg', 'Zolpidem 5 mg'],
-            'Kontrolle': [False, False, False, False]}
+    # Erstellen des DataFrames mit 4 Spalten und 4 Zeilen
+    data = {
+    'Medikamente 💊': ['Aspirin Cardio 100 mg', 'Metformin 500 mg', 'Atorvastatin 20 mg', 'Zolpidem 5 mg'],
+    'Einnahme ⏳': ['Morgens', 'Morgens/Abends', 'Abends', 'Nachts'],
+    'Dosierung': ['1 Tablette', 'Je 1 Tablette', '1 Tablette', '1/2 - max. 1 Tablette'],
+    'Kontrolle': [False, False, False, False]
+}
     df = pd.DataFrame(data)
 
-    # Checkbox-Menü für die Spalte "Kontrolle" erstellen
-    # selected_rows = st.multiselect('Kontrolle', df.index.tolist(), df[df['Kontrolle']].index.tolist())
-    selected_rows = st.multiselect('Kontrolle', df["Einnahme ⏳"].tolist() )
-    # Markiere ausgewählte Einnahmen in der DataFrame als "done"
+
+# Checkbox-Menü für die Spalte "Kontrolle" erstellen
+    selected_rows = st.multiselect('Kontrolle', df["Medikamente 💊"].tolist())
+
+ 
+
+# Markiere ausgewählte Einnahmen in der DataFrame als "done"
     for einnahme in selected_rows:
         df.loc[df["Einnahme ⏳"] == einnahme, 'Kontrolle'] = True
+
+ 
+
     st.write(df)
 
     st.subheader('Information ℹ️')
-    st.write('Nun können sie bei "Choose an Option" ihre Einnahmezeit anwählen, somit wird das eingenommene Medikament mit ☑️ bekennzeichnet.')
+    st.write('Nun können sie bei "Choose an Option" ihre Einnahmezeit anwählen, somit wird das eingenommene Medikament mit ☑️ angezeigt.')
 
 def page_meds():
 
     st.header("Hier finden Sie weitere Informationen zu den Medikamenten")
+    st.write('Das Compendium ist einen umfassende Online-Datenbank für medizinische Informationen. Es bietet detaillierte Informationen zu Medikamenten, Krankheiten und Therapien für Fachleute und Patienten. Das Compendium wird regelmässig aktualisiert und ermöglicht gezielte Suche nach relevanten Informationen. Es unterstützt fundierte Entscheidungen und informierte Diskussionen im Gesundheitswesen. Nebenbei finden Sie auch den SL-Preis, der für die Krankenkasse relevant ist. Dieser Preis kann Ihnen dabei helfen, die Kosten des Medikaments abzuschätzen.')
+    st.write('Klicken Sie auf den Link „compendium.ch", um das entsprechende Verzeichnis zu öffnen.')
     url = "https://compendium.ch"
     link_name = "Compendium"
     st.markdown(f"[{link_name}]({url})")
-
+    
+   
 def page_numbers():
     st.header("☎️ Wichtige Telefonnummern!")
     st.write("Haben Sie Beschwerden? Wurde ein Medikament vergessen oder falsch eingenommen? Zögern Sie nicht anzurufen!")
+    st.write("Speichern Sie diese Telefonnummern für den Fall von Notfällen, Vergiftungen und medizinischen Notfällen in Ihrem Mobiltelefon, um schnelle Hilfe zu erhalten. Diese Nummern bieten rasche Unterstützung und sind besonders wichtig in dringenden Situationen.")
     data = {'Kategorie': ['Allgemeiner Notruf', 'Vergiftungen', 'Ärztlicher Notfalldienst', 'Psychiatrischer Notfalldienst'],
             'Telefonnummer': ['112', '145', '0800 33 66 55', '0800 333 444']}
     df = pd.DataFrame(data) 
@@ -166,7 +179,7 @@ def main():
     pages = {
         "Startseite": page_home,
         "Medikamentenliste": page_medlist,
-        "Medikamenten-Informationen": page_meds,
+        "Compendium": page_meds,
         "Wichtige Telefonnummern": page_numbers,
         "Besondere Symptome": page_symptoms,
         "Studie": page_plot
