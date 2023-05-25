@@ -110,9 +110,9 @@ def page_symptoms():
    
     # Titel und Beschreibung
     st.header('Besondere Symptome')
-    st.write('Haben Sie Veränderungen bemerkt? Bitte geben Sie Symptome und den entsprechenden Zeitpunkt an und notieren Sie es für Ihre nächste Arztkonsultation.')
+    st.write('Haben Sie Veränderungen bemerkt? Hier haben Sie die Möglichkeit, Ihre Symptome und den Zeitpunkt zu notieren, um ein Tagebuch zu führen, das bei Ihrem nächsten Arztbesuch zur Hilfe dient.')
    
-    st.write('ℹ️ Bitte geben Sie Ihre Symptome im entsprechenden Feld ein. Wenn es um Zeitpunkte geht, wäre es hilfreich, wenn Sie das Datum und die Uhrzeit angeben.')
+    st.write('ℹ️ Bitte geben Sie Ihre Symptome im entsprechenden Feld ein. Wenn es um Zeitpunkte geht, wäre es hilfreich, wenn Sie das Datum und die Uhrzeit angeben (z.B: 14.02.2023, 07.00 Uhr).')
    
     num_entries = 10  # Anzahl der Einträge anpassen, z.B. 10
    
