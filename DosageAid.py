@@ -42,7 +42,7 @@ def login():
 
 def page_home():
     image_url = "https://media.istockphoto.com/id/949119664/vector/cute-white-doctor-robot-modern-health-care-flat-editable-vector-illustration-clip-art.jpg?s=170667a&w=0&k=20&c=EMq4RjpMf12KPNpp7hbyU8i663LaYbcooGQpbvRuXSI="
-    st.header('DosageAid 💊')
+    st.markdown("<h1 style='color: skyblue; font-weight: bold; font-family: Wide;'>DosageAid 💊</h1>", unsafe_allow_html=True)
     st.write('Herzlich Willkommen zur Medikamentendosierungs-App! Hier finden Sie alle Werkzeuge, die Sie benötigen, um Ihre Medikamentendosierung genau zu planen und im Blick zu behalten.')
     st.write('Wir hoffen, dass Ihnen unsere App dabei helfen wird, Ihre Medikamentendosierung auf einfache und effektive Weise zu optimieren. Vielen Dank, dass Sie sich für unsere App entschieden haben!')
     st.image(image_url, width=500)
@@ -54,7 +54,7 @@ def page_home():
 
     
 def page_medlist():
-    st.header('Medikamentenliste')
+    st.header((':orange[Medikamentenliste]')
     st.write('Sie können hier Ihre Einnahmezeiten auswählen und die App erkennt automatisch, welches Medikament zu welcher Zeit eingenommen wurde. Nur mit ein paar Klicks kann eine Übersicht erschaffen werden!.')
     # Erstellen des DataFrames mit 4 Spalten und 4 Zeilen
     data = {
@@ -149,6 +149,7 @@ def page_plot():
     df = pd.DataFrame(data)
     
     # Titel und Beschreibung
+    st.headers('Information über Zolpidem ℹ️')
     st.write('Einnahme von Zolpidem')
     st.write('Diese Tabelle zeigt die Anzahl der Studienteilnehmer und welche aus unterschiedlichen Gründen ausgeschieden wurden. Studie aus Tellmed.ch')
     
@@ -181,8 +182,8 @@ def main():
         "Medikamentenliste": page_medlist,
         "Compendium": page_meds,
         "Wichtige Telefonnummern": page_numbers,
-        "Besondere Symptome": page_symptoms,
-        "Studie": page_plot
+        "Ihre Symptome": page_symptoms,
+        "Studie: Zolpidem": page_plot
     }
 
  
