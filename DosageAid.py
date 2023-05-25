@@ -38,6 +38,27 @@ def login():
 
         st.error("Ungültiger Benutzername oder Passwort!")
     
+def main():
+    st.title("DosageAid App")
+    
+    if "authenticated" not in st.session_state:
+        login()
+    else:
+        st.sidebar.title("Navigation")
+        pages = {
+            "Startseite": page_home,
+            "Medikamentenliste": page_medlist,
+            "Compendium": page_meds,
+            "Wichtige Telefonnummern": page_numbers,
+            "Besondere Symptome": page_symptoms,
+            "Studie": page_plot
+        }
+
+ 
+
+        selection = st.sidebar.radio("Gehe zu", list(pages.keys()))
+        page = pages[selection]
+        page()
     
 
 def page_home():
@@ -180,27 +201,6 @@ def page_plot():
   
     #https://www.tellmed.ch/modules_end/printthis/?uniqueid=uniqueid&tip=2&popup=yes&mode=content_db&contentId=4854&lng=Lng1&thisMode=&clas_css=0&level_0=0   
 
-def main():
-    st.sidebar.title("Navigation")
-    pages = {
-        "Startseite": page_home,
-        "Medikamentenliste": page_medlist,
-        "Compendium": page_meds,
-        "Wichtige Telefonnummern": page_numbers,
-        "Ihre Symptome": page_symptoms,
-        "Studie: Zolpidem": page_plot
-    }
-
- 
-
-    if "authenticated" not in st.session_state:
-        login()
-    else:
-        selection = st.sidebar.radio("Gehe zu", list(pages.keys()))
-        page = pages[selection]
-        page()
-
- 
 
 if __name__ == "__main__":
     main()
