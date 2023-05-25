@@ -74,7 +74,7 @@ def page_home():
 
     
 def page_medlist():
-    st.header(':orange[Medikamentenliste]')
+    st.header(':orange[Medikamentenliste 🩺]')
     st.write('Sie können hier Ihre Einnahmezeiten auswählen und die App erkennt automatisch, welches Medikament zu welcher Zeit eingenommen wurde. Nur mit ein paar Klicks kann eine Übersicht erschaffen werden!.')
     # Erstellen des DataFrames mit 4 Spalten und 4 Zeilen
     data = {
