@@ -39,7 +39,6 @@ def login():
         st.error("Ungültiger Benutzername oder Passwort!")
     
 def main():
-    st.title("DosageAid App")
     
     if "authenticated" not in st.session_state:
         login()
@@ -50,7 +49,7 @@ def main():
             "Medikamentenliste": page_medlist,
             "Compendium": page_meds,
             "Wichtige Telefonnummern": page_numbers,
-            "Besondere Symptome": page_symptoms,
+            "Gesundheitstagebuch": page_symptoms,
             "Studie": page_plot
         }
 
