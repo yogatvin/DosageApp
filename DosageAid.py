@@ -114,7 +114,7 @@ def page_meds():
     
    
 def page_numbers():
-    st.header("☎️ Wichtige Telefonnummern!")
+    st.header(":red[☎️ Wichtige Telefonnummern!]")
     st.write("Haben Sie Beschwerden? Wurde ein Medikament vergessen oder falsch eingenommen? Zögern Sie nicht anzurufen!")
     st.write("Speichern Sie diese Telefonnummern für den Fall von Notfällen, Vergiftungen und medizinischen Notfällen in Ihrem Mobiltelefon, um schnelle Hilfe zu erhalten. Diese Nummern bieten rasche Unterstützung und sind besonders wichtig in dringenden Situationen.")
     data = {'Kategorie': ['Allgemeiner Notruf', 'Vergiftungen', 'Ärztlicher Notfalldienst', 'Psychiatrischer Notfalldienst'],
