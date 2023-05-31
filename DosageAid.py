@@ -11,9 +11,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Liste von Benutzername-Passwort-Paaren
+#Liste von Benutzername-Passwort-Paaren
 USERS = [
-     {"username": "zhaw", "password": "123"},
+    {"username": "zhaw", "password": "123"},
 ]
 
 
@@ -26,20 +26,16 @@ def login():
 
     if login_button:
         for user in USERS:
-            if st.session_state.get("authenticated", False):
-                return
             if username == user["username"] and password == user["password"]:
                 st.session_state.authenticated = True
-                st.success("Erfolgreich eingeloggt!")
+                main()
+                st.success("")
                 return
 
         st.error("Ungültiger Benutzername oder Passwort!")
 
 def logout():
     if st.session_state.get("authenticated", False):
-        st.session_state.authenticated = False
-        st.success("Erfolgreich ausgeloggt!")
-
  
 
 def main():
@@ -48,7 +44,7 @@ def main():
     else:
         if st.button("Logout"):
             logout()
-            return
+       
 
         st.sidebar.title("Navigation")
         pages = {
