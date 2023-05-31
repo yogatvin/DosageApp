@@ -11,12 +11,12 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+
 # Liste von Benutzername-Passwort-Paaren
 USERS = [
     {"username": "zhaw", "password": "123"},
 ]
 
- 
 
 def login():
     st.title("Unlock the DosageAid-App: Your Personal Medication Assistant! 🥳")
