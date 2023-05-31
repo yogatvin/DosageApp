@@ -16,7 +16,6 @@ USERS = [
     {"username": "zhaw", "password": "123"},
 ]
 
- 
 
 def login():
     st.title("Unlock the DosageAid-App: Your Personal Medication Assistant! 🥳")
