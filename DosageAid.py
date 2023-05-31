@@ -13,60 +13,59 @@ import plotly.express as px
 
 # Liste von Benutzername-Passwort-Paaren
 USERS = [
-    {"username": "zhaw", "password": "123"},
+    {"username": "zhaw", "password": "123"},
 ]
 
- 
+ 
+
 def login():
-    st.title("Unlock the DosageAid-App: Your Personal Medication Assistant! 🥳")
-    username = st.text_input("Benutzername")
-    password = st.text_input("Passwort", type="password")
-    login_button = st.button("Einloggen")
-    
-    if login_button:
-        for user in USERS:
-            if username == user["username"] and password == user["password"]:
-                st.success("Erfolgreich eingeloggt!")
-                st.session_state.authenticated = True
-                main()
-                st.success("")
-                return
-            
-            st.error("Ungültiger Benutzername oder Passwort!")
-            
+    st.title("Unlock the DosageAid-App: Your Personal Medication Assistant! 🥳")
+    username = st.text_input("Benutzername")
+    password = st.text_input("Passwort", type="password")
+    login_button = st.button("Einloggen")
+
+
+    if login_button:
+        for user in USERS:
+            if st.session_state.get("authenticated", False):
+                return
+            if username == user["username"] and password == user["password"]:
+                st.session_state.authenticated = True
+                st.success("Erfolgreich eingeloggt!")
+                return
+
+        st.error("Ungültiger Benutzername oder Passwort!")
+
 def logout():
-    st.session_state.authenticated = False
+    if st.session_state.get("authenticated", False):
+        st.session_state.authenticated = False
+        st.success("Erfolgreich ausgeloggt!")
 
- 
-
- 
+ 
 
 def main():
-    if "authenticated" not in st.session_state or not st.session_state.authenticated:
-        login()
-    else:
-        
-        if st.button("Logout"):
-            logout()
+    if "authenticated" not in st.session_state or not st.session_state.authenticated:
+        login()
+    else:
+        if st.button("Logout"):
+            logout()
+            return
 
- 
+        st.sidebar.title("Navigation")
+        pages = {
+            "Startseite": page_home,
+            "Medikamentenliste": page_medlist,
+            "Compendium": page_meds,
+            "Wichtige Telefonnummern": page_numbers,
+            "Gesundheitstagebuch": page_symptoms,
+            "Studie": page_plot
+        }
 
+ 
 
-        st.sidebar.title("Navigation")
-        pages = {
-            "Startseite": page_home,
-            "Medikamentenliste": page_medlist,
-            "Compendium": page_meds,
-            "Wichtige Telefonnummern": page_numbers,
-            "Gesundheitstagebuch": page_symptoms,
-            "Studie: Zolpidem": page_plot
-        }
-
- 
-
-        selection = st.sidebar.radio("Gehe zu", list(pages.keys()))
-        page = pages[selection]
-        page()
+        selection = st.sidebar.radio("Gehe zu", list(pages.keys()))
+        page = pages[selection]
+        page()
  
 
 
