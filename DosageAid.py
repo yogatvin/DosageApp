@@ -18,7 +18,7 @@ USERS = [
 
 
 def login():
-    st.title("Unlock the DosageAid-App: Your Personal Medication Assistant! 🥳")
+    st.title("Unlock the DosageAid-App: Your Personal Medication Assistant! 🥳")
     username = st.text_input("Benutzername")
     password = st.text_input("Passwort", type="password")
     login_button = st.button("Einloggen")
