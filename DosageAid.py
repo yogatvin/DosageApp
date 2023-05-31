@@ -12,62 +12,52 @@ import pandas as pd
 import plotly.express as px
 
 
+
 USERS = [
-    {"username": "zhaw", "password": "123"}
+    {"username": "zhaw", "password": "123"},
 ]
 
 def login():
-    st.title("Unlock the DosageAid-App: Your Personal Medication Assistant! 🥳")
-    username = st.text_input("Benutzername")
-    password = st.text_input("Passwort", type="password")
-    login_button = st.button("Einloggen")
+    st.title("Unlock the DosageAid-App: Your Personal Medication Assistant! 🥳")
+    username = st.text_input("Benutzername")
+    password = st.text_input("Passwort", type="password")
+    login_button = st.button("Einloggen")
 
-    if login_button:
-        for user in USERS:
-            if username == user["username"] and password == user["password"]:
-                st.success("Erfolgreich eingeloggt!")
-                st.session_state.authenticated = True
-                main()
-                st.success("")
-                return
+    if login_button:
+        for user in USERS:
+            if username == user["username"] and password == user["password"]:
+                st.success("Erfolgreich eingeloggt!")
+                st.session_state.authenticated = True
+                main()
+                st.success("")
+                return
 
-            st.error("Ungültiger Benutzername oder Passwort!")
+        st.error("Ungültiger Benutzername oder Passwort!")
 
 def logout():
-    st.session_state.authenticated = False
-
- 
-
- 
+    st.session_state.authenticated = False
 
 def main():
-    if "authenticated" not in st.session_state or not st.session_state.authenticated:
-        login()
-    else:
+    if "authenticated" not in st.session_state or not st.session_state.authenticated:
+        login()
+    else:
+        if st.button("Logout"):
+            logout()
 
-        if st.button("Logout"):
-            logout()
+        st.sidebar.title("Navigation")
+        pages = {
+            "Startseite": page_home,
+            "Medikamentenliste": page_medlist,
+            "Compendium": page_meds,
+            "Wichtige Telefonnummern": page_numbers,
+            "Gesundheitstagebuch": page_symptoms,
+            "Studie": page_plot
+        }
 
- 
-
-
-        st.sidebar.title("Navigation")
-        pages = {
-            "Startseite": page_home,
-            "Medikamentenliste": page_medlist,
-            "Compendium": page_meds,
-            "Wichtige Telefonnummern": page_numbers,
-            "Gesundheitstagebuch": page_symptoms,
-            "Studie": page_plot
-        }
-
- 
-
-        selection = st.sidebar.radio("Gehe zu", list(pages.keys()))
-        page = pages[selection]
-        page()
-        
-        
+        selection = st.sidebar.radio("Gehe zu", list(pages.keys()))
+        page = pages[selection]
+        page()
+      
         
 def page_home():
     image_url = "https://media.istockphoto.com/id/949119664/vector/cute-white-doctor-robot-modern-health-care-flat-editable-vector-illustration-clip-art.jpg?s=170667a&w=0&k=20&c=EMq4RjpMf12KPNpp7hbyU8i663LaYbcooGQpbvRuXSI="
