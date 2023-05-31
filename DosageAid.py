@@ -13,7 +13,7 @@ import plotly.express as px
 
 # Liste von Benutzername-Passwort-Paaren
 USERS = [
-   {"username": "zhaw", "password": "123"},
+  {"username": "zhaw", "password": "123"},
 ]
 
 
